@@ -1,0 +1,31 @@
+
+
+
+
+JautoDoc en el market place de eclipse
+
+
+CONTROLADOR REST
+
+@RestController
+@RequestMapping("/..")
+
+En vez de devolver un model and view o una vista, devolverá un json ( con el body, status, header... lo q sea )
+
+Se suelen usar para cuando el cliente es el que necesita la información para luego montarse lo q sea
+
+
+SPRING LOADED
+
+Agregar el plugin de Spring Loaded (buscar en la pagina de spring )
+realizar cambios en caliente sin estar reiniciando el servidor !!
+Hay que agregar en el yaml que no admita la cache en thymeleaf: spring.thymeleaf.cache = false
+
+Sobre todo está bien para los de front, que tienen que cambiar vistas sin tener q reiniciar siempre y el servidor
+Por eso hay que anular la cache del thymeleaf, para que recargue siempre de nuevo
+
+
+PROCESOS REPETITIVOS
+
+@EnableScheduling en el AppApplication. 
+

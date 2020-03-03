@@ -1,0 +1,27 @@
+
+https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#introducing-thymeleaf
+
+motor de plantillas thymeleaf
+es un generador de vistas del servidor
+delegamos al servidor la creacion de plantillas q devolvera el html q ha montado el navegador
+
+es util para separar front de back, si ambos perfiles saben el nombre de las variables se desarrolla web
+
+se integra muy bien con MVC, con la anotacion CONTROLLER nos devuelve directamente las vistas
+
+
+INTEGRACION
+
+desde el propio application.yml
+mirar en la page las propiedades por defecto
+en ppio iran en el directorio TEMPLATE
+tambien el sufijo, q es por defecto .html
+
+
+REFERENCIANDO OBJETOS: 
+
+$ Bean name (person), o para atributos injectados en la vista con addAttribute. VARIABLES Q VAMOS A PINTAR EN VISTA
+# List (creo)
+* Variable (name). Creo que es cuando es una referencia, un dato que se va a enviar de la vista al controlador...
+	CUANDO ES DATO Q ENVIA LA VISTA AL CONTROLADOR
+@ parece que es para redireccionar a controladores desde una vista

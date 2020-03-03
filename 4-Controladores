@@ -1,0 +1,97 @@
+
+En templates y static nos pasaran los de front end las vistas necesarias y htmls
+
+	En templates: los codigos html
+	En static: Css e imagenes
+
+
+Creamos primero un html de ejemplo de HelloWorld
+Para cada html hay que crerle su controlador, encargado de gestionar las peticiones de cliente que me lleguen
+Pero no tenemos ninguna URL a la que llamar a este controlador. 
+Hay que ponerle al controller un REQUESTMAPPING
+
+
+
+Insertando datos en plantillas
+
+thymeleaf tiene sus etiquetas para interpretar. por ejemplo 
+	th:text="${name}"
+
+Desde java insertamos ese name
+
+Para datos mas complejos
+
+	<span th:text="${person.age}"></span>
+
+
+Insertando listados
+
+	<table>
+		<head>
+			<tr>
+				<th>NAME</th>
+				<th>Age</th>
+			</tr>
+		</head>
+		<body th:each="person : ${people}">
+			<tr>
+				<th th:text="${persona.name}"></th>
+				<th th:text="${persona.age}"></th>
+			</tr>
+		</body>
+	</table>
+
+
+
+
+RECIBIENDO PETICION GET
+
+	@RequestParam(name="nm", required = false, defaultValue = "sin nombre") String name
+
+
+RECIBIENDO PETICION POST
+
+En la get, se me manda en el propio request los parametros con los que quiero recibir algo.
+En el post, el valor de lo que nos mandan ya es parte del modelo o del body. Un ejemplo sería una entidad Persona
+que se quiere guardar en base de datos. P
+Por lo que la anotacion es diferente con 
+
+	@ModelAttribute
+
+
+
+LOS REDIRECTS SE PONEN CUANDO NOS SALTAMOS PASAR POR LA VISTA Y VAMOS DE UN METODO DE CONTROLADOR A OTRO METODO, 
+QUE HARA OTRA COSA Y MOSTRARA OTRA VISTA!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

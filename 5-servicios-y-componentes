@@ -1,0 +1,42 @@
+
+con @Component ya le decimos a spring que al iniciar se cargue ese clase como componente
+
+Si luego la queremos usar desde otro sitio lo hacemos con @Autowired.
+Esto le dice a spring que de lo que tiene en memoria cargado se lo traiga.
+
+Con @Qualifier le indicamos el nombre de lo que tiene en memoria
+
+
+CALCULAR TIEMPO DE PETICIONES HTTP
+
+@Component("requestTimeInterceptor")
+Por cada peticion que nos hagan entre por esta clase
+Tenemos que heredar de HandlerInterceptorAdapter, e implementar los metodos: 
+- preHandle: se ejecuta antes de entrar en el metodo del controlador
+- afterCompletion: justo antes de escupir la vista del navegador
+
+
+Estos interceptores hay que registrarlos en las configuraciones Web de la app.
+Para ello se crea un @Configuration que implemente WebMvcConfigurer.
+
+Se override el metodo addInterceptors y se agrega al registro.
+
+
+
+PRIMER SERVICIO
+
+@Service. Bean que se inicie al arrancar el servidor.
+Crear interfaz, es el Impl el que será el servicio
+
+
+VALIDAR FORMULARIOS
+
+Hay que añadir a los Beans, persona, anotaciones. 
+@NotNull
+@Size(min=2, max=6)
+@Min(18) para int
+
+Luego en el controlador marcar el Bean como @Valid, y pasarle como parámetro el BINDINGRESULT
+En este objeto metera los errores que no cumpla de las anotaciones.
+En el formulario agregar para que pueda recoger el error: TH:IF
+El objeto del binding me devuelve un objeto FIELDS. th:if="${fields}"....

@@ -1,0 +1,7 @@
+
+boot
+framework:  core, injection, transacciones, acceso a datos, rest...
+data: JPA hibernate
+batch: operaciones repetitivas
+security: control acceso y sesiones de usuario
+loaded: refrescar web cuando los recursos estaticos se modifiquen sin tener q reiniciar el servidor

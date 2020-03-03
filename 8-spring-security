@@ -1,0 +1,50 @@
+
+Modulo de Spring Security
+
+projects/spring.io/spring-security
+
+Tenemos un quick start, y la descarga del framework del modulo con las dependencias del pom
+
+
+Hay que crear una clase de @configuracion de Security que extienda de una propia de Spring: SecurityConfiguration extends WebSecurityConfigurerAdapter
+
+	implementamos los metodos 
+		configureGlobal(AuthenticationManagerBuilder auth)
+		configure(HttpSecurity http)
+
+Este segundo método es el complicado que nos obligará a definir dónde están los css y las imgs que va a permitir usar y las rutas a las que va a ir moviendose
+en el proceso de login. Además el nombre de los parámetros que va a usar para comprobar el user y su password.
+Estos variables las recogemos nosotros en la vista (login.html) con su ID, y así las reconoce. 
+
+También hay que crear un servicio especial de security. Nuestra clase en vez de implementar sobre una interfaz propia de servicio, lo hará sobre una de Spring: UserDetailsService
+	public class UserServiceImpl implements UserDetailsService
+
+	Esta nos obligará a override el método que usará internamente para validar el usuario que se le mande: 
+
+	public UserDetails loadUserByUsername(String username) 
+
+	El username se lo manda, y desde el repository lo recoge de DB a una entidad nuestra propia.
+	Hay que transformar esa entidad el tipo UserDetails que es el que va a usar para validar
+
+
+		
+		
+
+
+SECURIZANDO CONTROLADORES
+Para poder introducir anotaciones de control de Spring en los controladores hay que añadir a la clase de @Configuration de security (SecurityConfiguration) un
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+
+Con esto, nos permitirá agregar un filtro de control en las clases de los controladores. Por ej: 
+
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/contactform")
+
+De esta forma no podrá entrar en este método un usuario que no tenga role de admin en la db
+
+La anotación @PreAuthorize se puede poner a nivel de clase en el controlador o en el service incluso
+
+
+OBTENER USUARIO AUTENTICADO EN EL CONTROLADOR
+
+

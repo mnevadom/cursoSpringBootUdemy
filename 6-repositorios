@@ -1,0 +1,55 @@
+
+HIBERNATE (ORM)
+
+por cada table, una clase que se mapeen solas
+
+Propiedades necesarias para spring: JPA y el Datasource para la conexión a db
+  datasource: 
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: = update   ---- Cuando eliminamos algo del entity, y reiniciamos servidor, se actualiza en la tabla de DB
+    properties:
+      dialect: org.hibernate.dialect.MySQLDialect      ----------- dialecto al hacer las consultas
+
+
+En pkg Entity crear los @Entity con su @Table(name="")
+Hay que dejar un constructor por defecto vacío en caso de crear nosotros uno propio. 
+Si no creamos uno nuestro, no hace falta generar este vacío
+
+Las columnas con @Column(name=""). Pueden llevar @Id o y si se tiene que autogenerar @GeneratedValue
+
+
+REPOSITORY
+
+@Repository("")
+extends JpaRepository <Clase entity, Serializable>
+Asi podemos usar ya todos los metodos de insert, delete etc
+Ademas le podemos agregar las que queramos como finByPrice(int price)
+lo detecta automaticamente y lo busca por precio
+
+
+MODELOS a partir de Entidades
+
+Crear un Converter. Hay datos en las tablas qu no me interesan en las vistas --> usamos modelos
+--> Los controller deberían trabajar SOLO CON MODELOS
+Son los SERVICIOS los encargados de hacer este mapeo entre los Repository Entities y los Controllers con los Model
+
+
+
+Query DSL
+
+http://www.querydsl.com/
+Agregar dependencias y plugin. En el plugin nos dice en que ruta nos deja las clases que genera para trabajar.
+Estas clases se generan a partir de las Entities q tengas declaradas --> QCourse
+
+Crear un repository que tenga de atributo esa Qclase
+
+		( si no me encuentra los recursos, hace un mvn eclipe:eclipse y ya los añade. Si no hay opcion maven/update proyect en eclipse)
+
+
+
+

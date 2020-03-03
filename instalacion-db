@@ -1,0 +1,13 @@
+
+Primero tener base de datos creada con la tabla que vamos a usar
+Desde workbrench se puede crear facilmente creando un new Model. 
+Ahí creamos la DB y la tabla. 
+Después desde el propio model en pestaña Database le damos a Forward Engineer y exportamos el dump a la db.
+
+Nos puede fallar la pass de root si acabamos de instalar mysql-server y no la hemos definido. 
+
+Para ello: 
+
+	- sudo mysql -u root 
+	- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+

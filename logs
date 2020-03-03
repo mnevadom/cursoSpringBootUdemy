@@ -1,0 +1,12 @@
+
+Las trazas de spring se dividen por
+- la hora
+- el nivel de traza, como info
+- un ID
+- nombre del thread
+- clase responsable
+- log
+
+
+
+

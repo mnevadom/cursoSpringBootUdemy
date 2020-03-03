@@ -1,0 +1,46 @@
+MAVEN
+Maven tiene los ciclos de vida que vemos en el pantallazo.
+si ejecutas uno de ellos con un mvn install por ej, realiza los anteriores hasta el q has ejecutado
+
+mvn guarda en target las fuentes y recursos, si haces un clean las elimina y si haces un install las vuelve a crear
+
+
+
+SpringBoot
+
+Ya no hay que generar tantas anotaciones como antes @configuration
+SBoot busca dentro de la carpeta de templates las plantillas a usar
+Si queremos sobreescribir algún parámetro se hace desde el APPLICATION.PROPERTIES
+
+Las propiedads que se pongan las mete en las dependencias spring
+
+
+Estructura SpringBoot
+
+el main tiene que estar a nivel del pkg inicial, si no spring no lo encuentra
+
+en static se guardan los js, css etc
+en templates se guardan las vistas
+en TEST se debería tener la misma estructura que arriba y por cada clase hacer un test
+
+
+DE PROPERTIES A YML
+
+Se crea en RESOURCES
+Se crea en other como FIle, y se llama igual que el de properties para que lo reconozca spring
+por cada propiedad generamos nuestro arbol.. el plugging de spring te autorellena ya
+
+
+Cambiando el banner
+
+El inicio de los logs se puede modificar cambiando el yml.
+
+hay una propiedad que te dice la ubicacion del fichero para el banner. si no la encuentra en RESOURCES pona la de defecto
+que vemos.
+Crear en resources un File con el nombre que queramos
+en el yml la propiedad empieza por classpath, eso empieza a buscar en resources
+Si no le ponemos esta propiedad busca por defecto con el banner.txt o gif
+Si queremos poner en otro sitio el banner hay q poner la propiedad
+Hay paginas que te lo generan a partir de una imagen
+
+
